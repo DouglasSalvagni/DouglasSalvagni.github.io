@@ -146,7 +146,7 @@ header {
     background-image: url("../img/header-background.png");
     background-repeat: no-repeat;
     background-position: right;
-    background-color: #F9D423;
+    background-color: #2C7873;
 }
 
 header .logo a{
@@ -405,8 +405,8 @@ main {
 }
 
 .card-1 button{
-    background: #F9D423;
-    color: #333;
+    background: #2C7873;
+    color: white;
     padding: 10px;
     border: none;
     border-radius: 10px;
@@ -439,7 +439,7 @@ main {
 }
 
 .card-2 h3>span {
-    color: pink;
+    color: #333;
 }
 
 .card-2 p{
