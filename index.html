@@ -23,7 +23,7 @@
                 </ul>
                 <ul class="right">
                     <li><a href="#">Facebook</a></li>
-                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Twitter</a></li>
                     <li><a href="#">Instagram</a></li>
                 </ul>
             </div>
@@ -32,7 +32,7 @@
             <div class="container topContent">
                 <i id="openMobileMenu" class="fas fa-bars right"></i>
                 <h1 class="logo">
-                    <a href="#">Port<span>foil</span></a>
+                    <a href="#">Blog<span>Logo</span></a>
                 </h1>
             </div>
         </div>
@@ -41,19 +41,51 @@
     <nav>
         <ul>
             <li><a href="#" class="active">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">My Portfoil</a></li>
-            <li><a href="#">Contact</a></li>
+            <li>
+                <a href="404.html">About</a>
+                <ul>
+                    <li><a href="404.html">Pages</a></li>
+                    <li>
+                        <a href="404.html">Submenu</a>
+                        <ul>
+                            <li><a href="404.html">Pages</a></li>
+                            <li><a href="404.html">Parancarico</a></li>
+                            <li><a href="404.html">Map</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="404.html">Map</a></li>
+                    <li><a href="404.html">Map</a></li>
+                    <li><a href="404.html">Map</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Healthy</a></li>
+            <li><a href="#">Travel</a></li>
+            <li><a href="#">Fashion</a></li>
         </ul>
+        <div class="searchNavWrap">
+            <i id="openSearch" class="fas fa-search"></i>
+            <form id="search" action="" class="search">
+                <input type="text" placeholder="Search an article">
+                <button>Search</button>
+            </form>
+        </div>
     </nav>
-    <nav class="mobileSidebar">
+    <div class="mobileSidebar">
+        <div class="searchWrap">
+            <i class="fas fa-search"></i>
+            <form id="search" action="" class="search">
+                <input type="text" placeholder="Search an article">
+                <button>Search</button>
+            </form>
+        </div>
         <ul>
             <li><a href="#" class="active">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">My Portfoil</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Healthy</a></li>
+            <li><a href="#">Travel</a></li>
+            <li><a href="#">Fashion</a></li>
         </ul>
-    </nav>
+    </div>
     <div class="contentOverlay"></div>
     <main class="container">
 
@@ -61,20 +93,85 @@
 
             <div class="col col-sidebar">
                 <div class="row wrapper">
-                    <div class="wrap">
+                    <div class="wrap borderDashed">
                         <div class="title-1">
                             <span>author</span>
                         </div>
                         <div class="col card-1">
-                            <img src="img/author.jpg" alt="">
+                            <img src="img/blogger.jpeg" alt="">
                         </div>
                         <div class="col card-1">
-                            <h3>Douglas Salvagni</h3>
+                            <h3>Priscilla Hahn</h3>
                             <p>Amet consectetur adipisicing elit. Repellendus delectus corporis eius excepturi accusantium numquam voluptas atque similique!</p>
-                            <button href="#">Read more</button>
+                            <div class="cardButtonCenter">
+                                <button href="#">Read more</button>
+                            </div>
+                        </div>
+                        <div class="socialMedia">
+                            <div class="socialMediaItem">
+                                <a href="#">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </div>
+                            <div class="socialMediaItem">
+                                <a href="#">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                            <div class="socialMediaItem">
+                                <a href="#">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                            <div class="socialMediaItem">
+                                <a href="#">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                     <div class="wrap">
+                        <div class="card-posts">
+                            <h2>Popular posts</h2>
+                            <div class="card-postsWrap">
+                                <div class="colImg">
+                                    <img src="img/post-1.jpg" alt="">
+                                    <span>3</span>
+                                </div>
+                                <div class="colText">
+                                    <p>Dolor sit amet consectetur adipisicing.</p>
+                                </div>
+                            </div>
+                            <div class="card-postsWrap">
+                                <div class="colImg">
+                                    <img src="img/post-2.jpg" alt="">
+                                    <span>2</span>
+                                </div>
+                                <div class="colText">
+                                    <p>Lorem Accusamus non eius cupiditate delectus quo.</p>
+                                </div>
+                            </div>
+                            <div class="card-postsWrap">
+                                <div class="colImg">
+                                    <img src="img/post-3.jpg" alt="">
+                                    <span>5</span>
+                                </div>
+                                <div class="colText">
+                                    <p>Eum harum ullam quibusdam voluptas consequuntur rem quasi ad ratione officiis!</p>
+                                </div>
+                            </div>
+                            <div class="card-postsWrap">
+                                <div class="colImg">
+                                    <img src="img/post-4.jpg" alt="">
+                                    <span>12</span>
+                                </div>
+                                <div class="colText">
+                                    <p>Eum harum ullam quibusdam voluptas consequuntur rem quasi ad ratione officiis!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="instaWrap">
                         <div class="title-1">
                             <span>instagram</span>
                         </div>
@@ -84,7 +181,58 @@
             </div>
 
             <div class="col col-content">
-                <div class="row wrapper">
+                <div class="wrapper">
+                    <div class="title-2">
+                        <h3>Recent posts</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col col-4 col-2">
+                            <article class="articleWrap">
+                                <div class="articleImage" style="background-image: url('img/post-2.jpg')">
+                                    <a href="#" class="articleLink">Sit amet consectetur.</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col col-2">
+                            <article class="articleWrap">
+                                <div class="articleImage" style="background-image: url('img/post-1.jpg')">
+                                    <a href="#" class="articleLink">Lorem ipsum dolor sit amet consectetur.</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col col-4">
+                            <article class="articleWrap">
+                                <div class="articleImage" style="background-image: url('img/post-3.jpg')">
+                                    <a href="#" class="articleLink">Lorem ipsum dolor sit amet consectetur.</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-4">
+                            <article class="articleWrap">
+                                <div class="articleImage" style="background-image: url('img/post-4.jpg')">
+                                    <a href="#" class="articleLink">Lorem ipsum dolor sit amet consectetur.</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col col-4 col-2">
+                            <article class="articleWrap">
+                                <div class="articleImage" style="background-image: url('img/post-5.jpg')">
+                                    <a href="#" class="articleLink">Lorem ipsum dolor sit amet consectetur.</a>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col col-2">
+                            <article class="articleWrap">
+                                <div class="articleImage" style="background-image: url('img/post-6.jpg')">
+                                    <a href="#" class="articleLink">Lorem ipsum dolor sit amet consectetur.</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col card-2">
                         <h2>Categorie</h2>
                         <h1>Título - Amet consectetur adipisicing elit. Sapiente, sint?</h1>
@@ -95,6 +243,8 @@
                             <a href="#">Read more</a>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col card-2">
                         <h2>Categorie</h2>
                         <h1>Lorem ipsum sapiente, sint?</h1>
@@ -115,6 +265,7 @@
         <h3>Lorem, ipsum dolor.</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Voluptates iusto maiores debitis inventore possimus velit eaque perspiciatis sit, ducimus aliquid.</p>
     </footer>
+
     <script src="js/jquery.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/instafeed.min.js"></script>
