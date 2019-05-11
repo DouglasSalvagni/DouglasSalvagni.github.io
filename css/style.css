@@ -610,7 +610,7 @@ nav>ul>li>ul>li>ul>li:hover{
 /*----- OPEN MOBILE NAV----*/
 
 .contentOverlay {
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	height: 100%;
 	top: 0;
