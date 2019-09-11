@@ -7,6 +7,8 @@
 body {
     background-color: #1fc8db;
     background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    background-size: cover;
+    min-height: 100vh;
 }
 
 ::selection {
@@ -14,102 +16,128 @@ body {
     color: #343434;
 }
 
-.wrapper {
+.container {
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
 }
 
-.center {
+    @media (min-width: 1170px) {
+        .container {
+            width: 1170px;
+            padding: 0;
+        }
+        
+    }
+    @media (min-width: 480px) {
+        .container {
+            width: 480px;
+            padding: 0 20px;
+        }
+    }
+    
+    /* tres colunas */
+    @media (min-width: 728px) {
+        .container {
+            width: 728px;
+            padding: 0 20px;
+        }
+    }
+    
+    /* sidebar */ 
+    @media (min-width: 992px) {
+        .container {
+            width: 992px;
+            padding: 0 20px;
+        }
+    }
+
+/* row */
+
+.row {
+    margin-left: -5px;
+    margin-right: -5px;
+    }
+    .row:before,
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+
+/* coluna */
+
+.col {
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+    margin-right: -4px;
+
+    *zoom: 1;
+    *display: inline;
+    }
+
+    @media (min-width: 480px) {
+        .col-2 {
+            width: 50%;
+        }
+    }
+    @media (min-width: 728px) {
+        .col-3 {
+            width: 33.37323E3%;
+        }
+        .col-4 {
+            width: 25%;
+        }
+    }
+
+.Wrap_home_title {
     display: flex;
-    justify-content: center;
+    -ms-flex-direction: column;
+        flex-direction: column;
     align-items: center;
-}
-
-.home-container {
-    width: 100%;
+    justify-content: center;
+    
     height: 100vh;
 }
 
-
-.main-content {
-    width: 600px;
-    height: 50%;
+.Wrap_home_title img {
+    margin-top: -100px;
+    margin-bottom: 50px;
 }
 
-.main-card {
-    text-align: center;
+.Wrap_home_title>h1 {
     color: #fff;
-    font-family: 'Noto Sans JP', sans-serif;
-}
-
-.main-card img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.main-card h1 {
     text-transform: uppercase;
     word-spacing: 20px;
     letter-spacing: 4px;
     font-weight: 100;
 }
 
-.main-card span {
-    background: #fff;
-    color: aqua;
-    padding: 0 15px;
-    font-weight: bold;
-    border-radius: 4px;
-    transition: box-shadow 0.4s linear;
-}
-.main-card span:hover {
-    box-shadow: 0px 0px 15px #fff;
-    transition: box-shadow 0.4s linear;
+nav {
+    display: block;
 }
 
-.box1 {
+nav ul {
+    margin-top: 25px;
+}
+
+nav ul li {
     display: inline-block;
-    animation: upscale 3s;
-    animation-fill-mode: forwards;
-    background-image: url('img/logo.png');
-    background-size: cover;
-    border-radius: 4px;
-    width: 0px;
-    height: 0px;
-    vertical-align: top;
+    padding: 5px;
+    border: solid 1px #fff;
+    border-radius: 5px;
+    margin: 0 5px;
 }
 
-.box2 {
-    display: inline-block;
-    animation: upscale 3s 2s;
-    animation-fill-mode: forwards;
-    background-image: url('img/logo.png');
-    background-size: cover;
-    border-radius: 4px;
-    width: 0px;
-    height: 0px;
-    vertical-align: top;
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+
 }
 
-.box3 {
-    display: inline-block;
-    animation: upscale 3s 4s;
-    animation-fill-mode: forwards;
-    background-image: url('img/logo.png');
-    background-size: cover;
-    border-radius: 4px;
-    width: 0px;
-    height: 0px;
-    vertical-align: top;
-}
 
-@keyframes upscale {
-    0%   {width: 0px; margin-right: 20px; }
-    1%   {border: solid #fff 2px; }
-    25%  {width: 100px; height: 0px;}
-    50%  {width: 100px; height: 100px}
-    100% {width: 100px; height: 100px; border: solid #fff 2px; margin-right: 20px; box-shadow: 0px 3px 3px rgb(41, 68, 87, 0.6);}
-}
