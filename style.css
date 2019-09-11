@@ -93,6 +93,8 @@ body {
         .col-4 {
             width: 25%;
         }
+    } 
+    @media (min-width: 992px) {
     }
 
 .Wrap_home_title {
@@ -110,7 +112,7 @@ body {
     margin-bottom: 50px;
 }
 
-.Wrap_home_title>h1 {
+.Wrap_home_title h1 {
     color: #fff;
     text-transform: uppercase;
     word-spacing: 20px;

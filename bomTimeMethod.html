@@ -10,10 +10,19 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
     <title>Document</title>
     <style>
-        .Wrap_home_title {
-            color: white;
-            text-transform:capitalize;
-            font-size: 2em;
+        .Wrap_timer {
+            display: flex;
+            -ms-flex-direction: column;
+                flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            height: 100vh;
+        }
+
+        .Wrap_timer h1 {
+            color: #fff;
+            font-size: 4rem;
         }
 
         button {
@@ -37,7 +46,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="Wrap_home_title">
+                <div class="Wrap_timer">
                     <div>
                         <section>
                             <h1>Hora Atual</h1>
@@ -46,10 +55,10 @@
                         <section>
                             <h1>Cronômetro</h1>
                             <h1 id="timer_display">00:00:00</h1>
-                            <div class="">
-                                <button id="play" style="border-bottom-left-radius: 10px; border-top-left-radius: 10px;">Play</button>
-                                <button id="pause" style="border-bottom-left-radius: 10px; border-top-left-radius: 10px; background-color: white">Pause</button>
-                                <button id="reset" style="border-bottom-right-radius: 10px; border-top-right-radius: 10px;">Reset</button>
+                            <div>
+                                <button id="play" style="border-bottom-left-radius: 10px; border-top-left-radius: 10px; margin-right: -2px;">Play</button>
+                                <button id="pause" style="border-bottom-left-radius: 10px; border-top-left-radius: 10px; margin-right: -2px; background-color: white">Pause</button>
+                                <button id="reset" style="border-bottom-right-radius: 10px; border-top-right-radius: 10px; margin-left: -2px;">Reset</button>
                             </div>
                         </section>
                     </div>
