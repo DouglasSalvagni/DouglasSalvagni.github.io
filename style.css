@@ -94,8 +94,6 @@ body {
             width: 25%;
         }
     } 
-    @media (min-width: 992px) {
-    }
 
 .Wrap_home_title {
     display: flex;

@@ -9,6 +9,8 @@
     <title>Document</title>
     <style>
         
+        body {
+        }
         .overflow_hidden {
             overflow: hidden;
         }
@@ -16,28 +18,15 @@
             width: 960px;
             margin: 10% auto 0 auto;
         }
-        .sidebar {
+        .sidebar_local {
             width: 250px;
-            position: relative;
+            position: absolute;
+            z-index: 104;
             display: inline-block;
-            margin: -2px 48px -2px -2px;
+            margin: -2px 0px -2px -2px;
+            left: calc(50% - 125px);
             vertical-align: top;
         }
-        .content_boneco {
-            height: 750px;
-            display: inline-block;
-            margin: -2px;
-            } 
-        
-            @media (min-width: 480px) {
-                .item {
-                    width: 360px;
-                }
-            }
-            @media (min-width: 992px) {
-                .content_boneco {width: 660px;}
-                .item {width: 660px;}
-            }
 
         .form_box {
             width: 100%;
@@ -45,7 +34,8 @@
             border-radius: 20px;
             border: solid 2px #fff;
             background: white;
-            opacity: 0.3;
+            opacity: 0.1;
+            margin-top: 20px;
             margin-bottom: 20px;
             -webkit-transition: 0.4s;
                -moz-transition: 0.4s;
@@ -53,24 +43,56 @@
             color: #1fc8db;
         }
 
-        .form_box:hover {
-            opacity: 1;
-        }
+        .form_box:hover {opacity: 1;}
 
         .form_box h2 {
             opacity: 1;
             margin-bottom: 10px;
         }
 
-        form select {
-            width: 200px;
-        }
-        form input {
-            margin-bottom: 10px;
-        }
+        form select {width: 200px;}
+
+        form input {margin-bottom: 10px;}
+        
+            @media (min-width: 480px) {
+                .sidebar_local { position: relative; left: unset;}
+                .form_box {opacity: 0.3;}
+                .form_box:hover {opacity: 1;}
+                .form_box h2 {opacity: 1;}   
+            }
+            @media (min-width: 728px) {
+                form select {width: 150px;}
+            } 
+            @media (min-width: 992px;) {
+            }
+
+        .content_boneco {
+            position: relative;
+            width: 100%;
+            height: 340px;
+            display: inline-block;
+            margin: -2px;
+            left: calc(50% - 125px);
+            } 
+        
+            @media (min-width: 480px) {
+                .content_boneco {width: 350px; height:440px; left: unset;}
+                .item {width: 300px;}
+            }
+            @media (min-width: 728px) {
+                .sidebar_local {width: 30%;}
+                .content_boneco {width: 70%; height:440px;}
+                .item {width: 70%;}
+            } 
+            @media (min-width: 992px) {
+                .sidebar_local {width: initial;}
+                .content_boneco {width: 660px; height: 750px;}
+                .item {width: 660px;}
+            }
         
         .item {
-            height: 750px;
+            width: 100%;
+            height: 100%;
             position: absolute;
             visibility: hidden;
             background-size:contain;
@@ -111,6 +133,9 @@
             background-repeat: no-repeat;
             z-index: 101;
             visibility: visible;
+            -webkit-transition: 0.4s;
+               -moz-transition: 0.4s;
+                    transition: 0.4s;
         }
 
         .glasses {
@@ -133,47 +158,43 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                    <main class="overflow_hidden">
-                        <div class="main_wrapper">
-                            <div class="sidebar">
-                                <div class="form_box">
-                                    <h2>Face</h2>
-                                    <form>
-                                        <input type="radio" name="face" value="face1" checked> face 1<br>
-                                        <input type="radio" name="face" value="face2"> face 2<br>
-                                        <input type="radio" name="face" value="face3"> face 3 <br>
-                                        <input type="radio" name="face" value="face4"> face 4 <br>
-                                    </form>
-                                </div>
-                                <div class="form_box">
-                                    <h2>Adornments</h2>
-                                    <form>
-                                        <input type="checkbox" name="adornments" value="helmet"> Helmet Viking<br>
-                                        <input type="checkbox" name="adornments" value="glasses"> Glasses<br>
-                                    </form>
-                                </div>
-                                <div class="form_box">
-                                    <h2>Shirt Print</h2>
-                                    <form>
-                                        <select id="options">
-                                            <option value="opt1">Power</option>
-                                            <option value="opt2">Joystick</option>
-                                            <option value="opt3">Ghost</option>
-                                            <option value="opt4">Spock</option>
-                                        </select>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="content_boneco">
-                                <div class="item boneco"></div>
-                                <div id="face" class="item face"></div>
-                                <div class="item mainface"></div>
-                                <div id="print" class="item print"></div>
-                                <div id="glasses" class="item glasses"></div>
-                                <div id="helmet" class="item helmet"></div>
-                            </div>
-                        </div>
-                    </main>
+                <div class="sidebar_local">
+                    <div class="form_box">
+                        <h2>Face</h2>
+                        <form>
+                            <input type="radio" name="face" value="face1" checked> face 1<br>
+                            <input type="radio" name="face" value="face2"> face 2<br>
+                            <input type="radio" name="face" value="face3"> face 3 <br>
+                            <input type="radio" name="face" value="face4"> face 4 <br>
+                        </form>
+                    </div>
+                    <div class="form_box">
+                        <h2>Adornments</h2>
+                        <form>
+                            <input type="checkbox" name="adornments" value="helmet"> Helmet Viking<br>
+                            <input type="checkbox" name="adornments" value="glasses"> Glasses<br>
+                        </form>
+                    </div>
+                    <div class="form_box">
+                        <h2>Shirt Print</h2>
+                        <form>
+                            <select id="options">
+                                <option value="opt1">Power</option>
+                                <option value="opt2">Joystick</option>
+                                <option value="opt3">Ghost</option>
+                                <option value="opt4">Spock</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+                <div class="content_boneco">
+                    <div class="item boneco"></div>
+                    <div id="face" class="item face"></div>
+                    <div class="item mainface"></div>
+                    <div id="print" class="item print"></div>
+                    <div id="glasses" class="item glasses"></div>
+                    <div id="helmet" class="item helmet"></div>
+                </div>
             </div>
         </div>
     </div>
