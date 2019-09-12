@@ -97,9 +97,9 @@
     }, 1000)
 
     // stopwatch
-    var hour = 0
-    var minute = 0
-    var second = 0
+    var hour = !window.localStorage.hour ? hour = 0 : hour = parseInt(window.localStorage.hour)
+    var minute = !window.localStorage.minute ? minute = 0 : minute = parseInt( window.localStorage.minute)
+    var second = !window.localStorage.second ? second = 0 : second = parseInt(window.localStorage.second)
     document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
     
     var play = document.getElementById('play')
@@ -125,6 +125,10 @@
                 minute = 0
                 hour = hour + 1
             }
+            
+            window.localStorage.setItem("second", second)
+            window.localStorage.setItem("minute", minute)
+            window.localStorage.setItem("hour", hour)
 
             document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
         }, 1000)
@@ -145,6 +149,9 @@
             hour = 0
             minute = 0
             second = 0
+            window.localStorage.setItem("second", second)
+            window.localStorage.setItem("minute", minute)
+            window.localStorage.setItem("hour", hour)
             document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
     
         }
