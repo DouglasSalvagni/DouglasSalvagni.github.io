@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="scripts/jquery-3.4.1.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
     <title>Document</title>
     <style>
+        body {
+            color: #fff;
+        }
         .Wrap_timer {
             display: flex;
             -ms-flex-direction: column;
@@ -47,9 +51,24 @@
             margin-bottom: 90px;
         }
 
+        .notice {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: aquamarine;
+            display: none;
+            }
+            .notice h1 {
+                font-size: 4rem;
+                text-transform: uppercase;
+                text-align: center;
+                margin-top: 45%;
+            }
+
     </style>
 </head>
 <body>
+    <div id="notice" class="notice"><h1>Seu último registro está salvo</h1></div>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -97,9 +116,9 @@
     }, 1000)
 
     // stopwatch
-    var hour = 0
-    var minute = 0
-    var second = 0
+    var hour = !window.localStorage.hour ? hour = 0 : hour = parseInt(window.localStorage.hour)
+    var minute = !window.localStorage.minute ? minute = 0 : minute = parseInt( window.localStorage.minute)
+    var second = !window.localStorage.second ? second = 0 : second = parseInt(window.localStorage.second)
     document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
     
     var play = document.getElementById('play')
@@ -125,6 +144,10 @@
                 minute = 0
                 hour = hour + 1
             }
+            
+            window.localStorage.setItem("second", second)
+            window.localStorage.setItem("minute", minute)
+            window.localStorage.setItem("hour", hour)
 
             document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
         }, 1000)
@@ -145,12 +168,42 @@
             hour = 0
             minute = 0
             second = 0
+            window.localStorage.setItem("second", second)
+            window.localStorage.setItem("minute", minute)
+            window.localStorage.setItem("hour", hour)
             document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
     
         }
     }
+    
+    document.getElementById('reset').onclick = function() {
 
+        play.style.display = 'inline-block'
+        pause.style.display = 'none'
+        hour = 0
+        minute = 0
+        second = 0
+        window.localStorage.setItem("second", second)
+        window.localStorage.setItem("minute", minute)
+        window.localStorage.setItem("hour", hour)
+        document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
 
+    }
+
+    if (window.localStorage.hour ||  window.localStorage.second || window.localStorage.minute && (window.localStorage.hour !== "0" && window.localStorage.second !== "0" && window.localStorage.minute !== "0")) {
+        $("#notice").show()
+        $("#notice").animate({
+            opacity: '1'
+        }, 2000)
+        $("#notice").animate({
+            opacity: '0'
+        }, 500)
+        $("#notice").animate({
+            opacity: '0',
+        }, function() {$("#notice").hide()})
+    }
+    
+    
 
     //number formater
 
