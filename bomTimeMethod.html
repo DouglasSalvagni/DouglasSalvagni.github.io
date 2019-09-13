@@ -189,19 +189,25 @@
         document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
 
     }
+    
+    if (window.localStorage.hour ||  window.localStorage.second || window.localStorage.minute) {
+        console.log('work')
+        if (window.localStorage.hour != "0" || window.localStorage.second != "0" || window.localStorage.minute != "0") {
 
-    if (window.localStorage.hour ||  window.localStorage.second || window.localStorage.minute && (window.localStorage.hour !== "0" && window.localStorage.second !== "0" && window.localStorage.minute !== "0")) {
-        $("#notice").show()
-        $("#notice").animate({
-            opacity: '1'
-        }, 2000)
-        $("#notice").animate({
-            opacity: '0'
-        }, 500)
-        $("#notice").animate({
-            opacity: '0',
-        }, function() {$("#notice").hide()})
+            $("#notice").show()
+            $("#notice").animate({
+                opacity: '1'
+            }, 1500)
+            $("#notice").animate({
+                opacity: '0'
+            }, 500, function() {$("#notice").hide()})
+        }
+    } else if (window.localStorage.hour == "0" && window.localStorage.second == "0" && window.localStorage.minute == "0") {
+        window.localStorage.removeItem("second")
+        window.localStorage.removeItem("minute")
+        window.localStorage.removeItem("hour")
     }
+
     
     
 
