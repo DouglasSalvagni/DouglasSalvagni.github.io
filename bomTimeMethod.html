@@ -80,6 +80,7 @@
                         </section>
                         <section>
                             <h1>Cronômetro</h1>
+                            <h1 id="millisecond_display">00</h1>
                             <h1 id="timer_display">00:00:00</h1>
                             <div style="margin-top: 15px;">
                                 <button id="play" style="border-bottom-left-radius: 10px; border-top-left-radius: 10px; margin-right: -2px;">Play</button>
@@ -119,8 +120,9 @@
     var hour = !window.localStorage.hour ? hour = 0 : hour = parseInt(window.localStorage.hour)
     var minute = !window.localStorage.minute ? minute = 0 : minute = parseInt( window.localStorage.minute)
     var second = !window.localStorage.second ? second = 0 : second = parseInt(window.localStorage.second)
-    document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
-    
+    var millisecond = !window.localStorage.millisecond ? millisecond = 0 : millisecond = parseInt(window.localStorage.millisecond)
+    document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second) 
+    document.getElementById('millisecond_display').innerHTML = number_format(millisecond)
     var play = document.getElementById('play')
     var pause = document.getElementById('pause')
     pause.style.display = 'none'
@@ -133,24 +135,33 @@
 
         var clock = window.setInterval(function() {
             
-            if (second > 58) {
-                second = 0
-                minute = minute + 1
-            } else {
-                second = second + 1
-            }
+            if (millisecond > 98) {
+                millisecond = 0
 
-            if (minute > 58) {
-                minute = 0
-                hour = hour + 1
+                if (second > 58) {
+                    second = 0
+                    minute = minute + 1
+
+                    if (minute > 58) {
+                        minute = 0
+                        hour = hour + 1
+                    }
+                } else {
+                    second = second + 1
+                }
+
+            } else {
+                millisecond = millisecond + 1
             }
             
             window.localStorage.setItem("second", second)
             window.localStorage.setItem("minute", minute)
             window.localStorage.setItem("hour", hour)
+            window.localStorage.setItem("millisecond", millisecond)
 
-            document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
-        }, 1000)
+            document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second) 
+            document.getElementById('millisecond_display').innerHTML = number_format(millisecond)
+        }, 10)
 
         document.getElementById('pause').onclick = function() {
             
@@ -168,11 +179,13 @@
             hour = 0
             minute = 0
             second = 0
+            millisecond = 0
             window.localStorage.setItem("second", second)
             window.localStorage.setItem("minute", minute)
             window.localStorage.setItem("hour", hour)
-            document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
-    
+            window.localStorage.setItem("millisecond", millisecond)
+            document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second) 
+            document.getElementById('millisecond_display').innerHTML = number_format(millisecond)
         }
     }
     
@@ -183,16 +196,18 @@
         hour = 0
         minute = 0
         second = 0
+        millisecond = 0
         window.localStorage.setItem("second", second)
         window.localStorage.setItem("minute", minute)
         window.localStorage.setItem("hour", hour)
-        document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second)
-
+        window.localStorage.setItem("millisecond", millisecond)
+        document.getElementById('timer_display').innerHTML =  number_format(hour) + ":" + number_format(minute) + ":" + number_format(second) 
+        document.getElementById('millisecond_display').innerHTML = number_format(millisecond)
     }
     
-    if (window.localStorage.hour ||  window.localStorage.second || window.localStorage.minute) {
+    if (window.localStorage.hour ||  window.localStorage.second || window.localStorage.minute || window.localStorage.millisecond) {
         console.log('work')
-        if (window.localStorage.hour != "0" || window.localStorage.second != "0" || window.localStorage.minute != "0") {
+        if (window.localStorage.hour != "0" || window.localStorage.second != "0" || window.localStorage.minute != "0" || window.localStorage.millisecond != "0") {
 
             $("#notice").show()
             $("#notice").animate({
@@ -202,14 +217,7 @@
                 opacity: '0'
             }, 500, function() {$("#notice").hide()})
         }
-    } else if (window.localStorage.hour == "0" && window.localStorage.second == "0" && window.localStorage.minute == "0") {
-        window.localStorage.removeItem("second")
-        window.localStorage.removeItem("minute")
-        window.localStorage.removeItem("hour")
     }
-
-    
-    
 
     //number formater
 
